@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+//tasks.withType(JavaCompile).configureEach {
+//	options.compilerArgs += "--enable-preview"
+//}
+//
+//tasks.withType(Test).configureEach {
+//	jvmArgs += "--enable-preview"
+//}
+//
+//tasks.withType(JavaExec).configureEach {
+//	jvmArgs += "--enable-preview"
+//}
+
+repositories {
+	mavenCentral()
+}
+
+task copyAppJar(type:Copy){
+	dependsOn bootJar
+	from bootJar.archiveFile.get().asFile
+	rename {String filename -> return "aws.jar"}
+	into "${rootProject.buildDir}/output-docker"
+}
+
+dependencies {
+	implementation 'junit:junit:4.13.1'
+	compileOnly 'org.jetbrains:annotations:23.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'com.google.firebase:firebase-admin:9.2.0'
+	implementation 'com.google.code.gson:gson'
+//	implementation 'io.jsonwebtoken:jjwt-api'
+//	implementation 'io.jsonwebtoken:jjwt-impl'
+//	implementation 'io.jsonwebtoken:jjwt-jackson'
+//	runtimeOnly 'org.flywaydb:flyway-core'
+	implementation 'org.postgresql:postgresql'
+	implementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

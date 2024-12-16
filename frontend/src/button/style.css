@@ -1,0 +1,185 @@
+/* 1. Top Navigation Bar */
+.navbar {
+    background-color: #F7F7F7; /* Light gray */
+    color: #333333; /* Dark gray/black */
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #bbddff; /* Blue on hover */
+    color: #000000; /* White text */
+}
+
+/* 1.1. Mega Menu Items */
+.mega-menu-item {
+    background-color: #FFFFFF; /* White */
+    color: #333333; /* Dark gray text */
+    border: 1px solid #E0E0E0; /* Light gray border */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mega-menu-item:hover {
+    background-color: #F0F0F0; /* Light gray on hover */
+    color: #1E90FF; /* Blue text */
+}
+
+/* 2. CTA Buttons */
+.cta-button {
+    background-color: #FF7F50; /* Orange */
+    color: #FFFFFF; /* White text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #FF6347; /* Darker orange on hover */
+    transform: scale(1.05); /* Slight increase in size */
+}
+
+/* 2.1. Secondary Button */
+.secondary-button {
+    background-color: #FFFFFF; /* White */
+    color: #FF7F50; /* Orange text */
+    border: 2px solid #FF7F50; /* Orange outline */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #FF7F50; /* Orange background on hover */
+    color: #FFFFFF; /* White text */
+}
+
+/* 3. Product Listings (Cards) */
+.product-card {
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #E0E0E0; /* Light gray border */
+    color: #333333; /* Dark gray text */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover {
+    background-color: #F9F9F9; /* Very light gray on hover */
+    border-color: #C0C0C0; /* Darker gray border */
+    color: #FF7F50; /* Orange text */
+    transform: scale(1.03); /* Slight lift */
+}
+
+/* 3.1. Product Image Hover */
+.product-image {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* 4. Links */
+a {
+    color: #1E90FF; /* Blue */
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+a:hover {
+    color: #4682B4; /* Darker blue on hover */
+    border-bottom: 1px solid #4682B4; /* Underline slides in */
+}
+
+/* 5. Login/Sign Up Modal */
+.modal {
+    background-color: #FFFFFF; /* White */
+    color: #333333; /* Dark gray text */
+}
+
+.modal-button {
+    background-color: #FF7F50; /* Orange */
+    color: #FFFFFF; /* White */
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #FF6347; /* Darker orange on hover */
+}
+
+/* 6. Search Bar */
+.search-bar {
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #E0E0E0; /* Light gray border */
+    color: #333333; /* Dark gray text */
+    padding: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: #1E90FF; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(173, 216, 230, 0.5); /* Light blue shadow */
+}
+
+/* 7. Footer */
+.footer {
+    background-color: #333333; /* Dark gray */
+    color: #F0F0F0; /* Light gray */
+}
+
+.footer a {
+    color: #F0F0F0; /* Light gray links */
+}
+
+.footer a:hover {
+    color: #1E90FF; /* Blue on hover */
+}
+
+/* 8. Icons (e.g., Social Media) */
+.icon {
+    color: #F0F0F0; /* Light gray */
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #1E90FF; /* Blue on hover */
+}
+
+/* 9. Breadcrumb Navigation */
+.breadcrumb {
+    background-color: transparent;
+    color: #333333; /* Dark gray */
+}
+
+.breadcrumb:hover {
+    background-color: #ADD8E6; /* Light blue background */
+    color: #4682B4; /* Darker blue */
+}
+
+/* 10. Form Inputs */
+.input-field {
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #E0E0E0; /* Light gray */
+    color: #333333; /* Dark gray */
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #FF7F50; /* Orange border on focus */
+    box-shadow: 0 0 5px rgba(255, 218, 185, 0.5); /* Light orange glow */
+}
+
+/* 11. Pagination */
+.pagination .page-item {
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #E0E0E0; /* Light gray */
+    color: #333333; /* Dark gray */
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item.active {
+    background-color: #FF7F50; /* Orange for active page */
+    color: #FFFFFF; /* White text */
+}
+
+.pagination .page-item:hover:not(.active) {
+    background-color: #F0F0F0; /* Light gray */
+    color: #1E90FF; /* Blue */
+}

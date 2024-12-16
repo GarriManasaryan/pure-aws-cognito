@@ -1,0 +1,28 @@
+FROM node:20-alpine AS builder
+ENV NODE_ENV production
+# Add a work directory
+WORKDIR /app
+
+COPY package*.json .
+COPY frontend/ .
+RUN npm install
+# Build the app
+RUN npm run build
+
+# Bundle static assets with nginx
+FROM nginx:alpine as production
+ENV NODE_ENV production
+# Copy built assets from builder
+COPY --from=builder /app/build /usr/share/nginx/html
+# Copy nginx configuration template
+COPY nginx.conf /etc/nginx/conf.d/default.conf.template
+
+# # Start nginx
+# CMD ["nginx", "-g", "daemon off;"]
+
+# # Add a shell script to start both nginx and the backend
+# COPY start_front.sh /start_front.sh
+# RUN chmod +x /start_front.sh
+
+# Use envsubst to substitute the environment variable in nginx.conf at runtime, then start Nginx and the backend
+CMD envsubst '${REACT_APP_BASE_URL}' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g "daemon off;"

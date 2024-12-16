@@ -1,0 +1,10 @@
+FROM node:20-alpine
+
+# Add a work directory
+WORKDIR /app
+
+COPY package*.json .
+COPY frontend/ .
+
+RUN npm install
+CMD ["npm", "start"]

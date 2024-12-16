@@ -1,0 +1,68 @@
+version: "3"
+services:
+
+  database:
+    image: postgres:14.5
+    container_name: db_aws
+    hostname: db_aws_host
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pg_aws:/var/lib/postgresql/data
+    expose:
+      - "5433"
+    ports:
+      - "5433:5433"
+    command: -p 5433
+
+  backend:
+    # image: garrri/aws_test_backend:latest
+    # depends_on:
+    #   - database
+    build:
+      dockerfile: Dockerfile.bk
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8080:8080"
+
+  # frontend:
+  #   # image: garrri/aws_test_frontend:latest
+  #   depends_on:
+  #     - backend
+  #   environment:
+  #     # this is only passed to nginx config; react app doesnt need it
+  #     REACT_APP_BASE_URL: ${REACT_APP_BASE_URL}
+  #   build:
+  #     dockerfile: Dockerfile.fknginx
+  #   ports:
+  #     - "3000:3000"
+
+  #   stdin_open: true
+  #   tty: true
+
+  # app:
+  #   # image: garrri/aws_test_full_app:latest
+  #   depends_on:
+  #     - database
+  #   environment:
+  #     DB_URL: ${DB_URL}
+  #     DB_USERNAME: ${DB_USERNAME}
+  #     DB_PASSWORD: ${DB_PASSWORD}
+  #     REACT_APP_BASE_URL: ${REACT_APP_BASE_URL}
+  #   build:
+  #     dockerfile: Dockerfile.bfk
+  #   ports:
+  #     - "8080:8080"
+  #     - "3000:3000"
+  #   expose:
+  #     - "8080"
+  #     - "3000"
+  #   stdin_open: true
+  #   tty: true
+
+volumes:
+  pg_aws:

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: aws
+
+frontend:
+  name: ${ORIGIN}
+
+firebase:
+  config: ${FIREBASE_CONFIG}
+
+# ПРИ ВКЛЮЧЕНИИ БАЗЫ ОБРАТНО, УБРАТЬ СТРОКУ exclude = {DataSourceAutoConfiguration.class }
+#  datasource:
+#    url: ${DB_URL}
+#    # url: jdbc:postgresql://db_aws_host:5433/dbaws
+#    # url: jdbc:postgresql://localhost:5433/dbaws
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
+
+#    flyway:
+#      baselineOnMigrate: true
+
